@@ -10,7 +10,7 @@ import XCTest
 import CoreLocation
 @testable import Solar
 
-final class Solar_iOSTests: XCTestCase {
+final class SolarTests: XCTestCase {
     
     private let testDate = Date(timeIntervalSince1970: 1486598400)
     
@@ -20,8 +20,8 @@ final class Solar_iOSTests: XCTestCase {
     
     private lazy var cities: [City] = {
         guard
-            let resultsURLString = Bundle(for: type(of: self)).path(forResource: "CorrectResults", ofType: "json"),
-            let data = try? Data(contentsOf: URL(fileURLWithPath: resultsURLString)),
+            let resultsURL = Bundle.module.url(forResource: "CorrectResults", withExtension: "json"),
+            let data = try? Data(contentsOf: resultsURL),
             let dictionary = try? JSONSerialization.jsonObject(with: data, options: []),
             let cityDictionaries = dictionary as? [[String : Any]]
         else {

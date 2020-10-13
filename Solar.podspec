@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.osx.deployment_target = '10.9'
   s.source       = { :git => "https://github.com/ceek/Solar.git", :tag => "#{s.version}" }
-  s.source_files  = "Solar/*.{swift}"
+  s.source_files  = "Sources/Solar/*.{swift}"
   s.requires_arc = true
 end
